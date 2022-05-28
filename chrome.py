@@ -8,7 +8,7 @@ driver = Chrome(options=opts, executable_path='chromedriver.exe')
 try:
     driver.get('https://www.quicksoft.com.br/')
     tagA = driver.find_element_by_link_text('Acesso ao Cliente')
-    tagA.send_keys(Keys.ENTER)
+    # tagA.send_keys(Keys.ENTER)
     driver.get('https://portal.qcertifica.com.br/Authentication/Login.aspx')
     login = driver.find_element_by_name('ctl00$body$txtUsuario')
     senha = driver.find_element_by_name('ctl00$body$txtSenha')
