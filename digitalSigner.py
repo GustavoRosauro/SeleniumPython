@@ -1,0 +1,31 @@
+from selenium.webdriver.common.keys import Keys
+import time
+
+class DigitalSigner:
+    def execute_tests(self,driver):        
+        driver = driver.return_drive_informations()
+        driver.get(driver.current_url)
+        motive = driver.find_element_by_name("ctl00$cphContext$ctrlFAS906$grdRemittances$ctl00$ctl06$gbOperationReason$gbOperationReason")
+        motive.send_keys(Keys.ENTER)
+        time.sleep(2)
+        closeMotive = driver.find_element_by_name("ctl00$cphContext$ctrlFAS906$wndOperationReason$btnClose")
+        closeMotive.send_keys(Keys.ENTER)
+        time.sleep(2)
+        link = driver.find_element_by_id('ctl00_cphContext_ctrlFAS906_btnAbrirGrafico')
+        link.click()
+        time.sleep(2)
+        closeLink = driver.find_element_by_name('ctl00$cphContext$ctrlFAS906$modalGraficoFiltro$btnClose')
+        closeLink.send_keys(Keys.ENTER)
+        time.sleep(2)
+        details = driver.find_element_by_name('ctl00$cphContext$ctrlFAS906$grdDocuments$ctl00$ctl10$btnSigners')
+        details.click()
+        time.sleep(2)
+        closeDetails = driver.find_element_by_name('ctl00$cphContext$ctrlFAS906$mdlSigners$btnClose')
+        closeDetails.click()
+        time.sleep(2)
+        check = driver.find_element_by_id('ctl00_cphContext_ctrlFAS906_grdRemittances_ctl00_ctl04_ckbSelect')
+        check.click()
+        assignor = driver.find_element_by_id('ctl00_cphContext_ctrlFAS906_rbtCompanyType_0')
+        assignor.click()
+        search = driver.find_element_by_name('ctl00$cphContext$ctrlFAS906$btnFind')
+        search.click()
